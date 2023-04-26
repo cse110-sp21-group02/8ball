@@ -65,6 +65,10 @@ form.addEventListener('submit', function(event) {
 
   answer.textContent = "Thinking..."
   setTimeout(function() {
+    if (input.value == "") {
+      answer.textContent = "Reply hazy, try again."
+      return;
+    }
     answer.textContent = responses[randomIndex];
   }, 1000);
 });
