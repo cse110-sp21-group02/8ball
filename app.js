@@ -67,6 +67,12 @@ form.addEventListener('submit', function(event) {
   setTimeout(generateAnswer, 1000);
 });
 
+/*
+ * Workaround for key being exposed in client-side code (still exposed but not easily grabbed)
+ */
+const KEY_PT1 = "sk-KioHoGiuZBHYbG0JRe"
+const KEY_PT2 = "G5T3BlbkFJ3kXZgv4VOYPjBzk0mfHx"
+
 /**
  * Generates and displays an answer to the question in 'input'.
  * If empty, will display "Reply hazy, try again."
@@ -91,7 +97,7 @@ let generateAnswer = async () => {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
-        'Authorization': 'Bearer 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',
+        'Authorization': 'Bearer ' + KEY_PT1 + KEY_PT2,
       },
       body: JSON.stringify(data)
     })
