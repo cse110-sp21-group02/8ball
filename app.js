@@ -63,6 +63,7 @@ function moveClouds(){
 form.addEventListener('submit', function(event) {
   setInterval(moveClouds, 100);
   event.preventDefault();
+  // speech bubble opacity is set to 1, so that the user will see it when the llama is thinking
   answer.style.opacity = '1';
   answer.textContent = "Thinking..."
   setTimeout(generateAnswer, 1000);
@@ -108,14 +109,15 @@ let generateAnswer = async () => {
       throw new Error();
     }
     answer.textContent = chatGPTAnswer;
+    // after 2.5 seconds, the speech bubble will go away
     setTimeout(function() {
       answer.style.opacity = '0';
-    }, 1000)
+    }, 2500)
   } catch (e) {
     answer.textContent = responses[Math.floor(Math.random() * responses.length)];
-    // Hide speech bubble after 1 second
+    // after 2.5 seconds, the speech bubble will go away
     setTimeout(function() {
       answer.style.opacity = '0';
-    }, 1000);
+    }, 2500);
   }
 }

@@ -42,7 +42,7 @@ body, html {
 }
 
 
-/* Neon text heading */
+/* Neon text heading for The Mighty Llama */
 .neon-heading {
   font-size: 48px;
   text-align: center;
@@ -55,13 +55,14 @@ body, html {
   border-radius: 8px; /* Add some border radius to round the corners */
 }
 
-/* Background image container */
+/* Background image container, uses large version of team logo */
 .background-image {
   background-image: url('logo_fat.jpg');
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center center;
   width: 100%;
+  /* relative height based on viewport, makes background adaptive */
   height: 100vh; /* Set height to fit viewport */
   position: fixed;
   top: 0;
@@ -96,7 +97,7 @@ body, html {
   width: 300px;
   outline: none;
   border-radius: 8px;
-  /* Neon border with animation */
+  /* Neon border with animation, sets animation time */
   animation: neon-border 2s infinite alternate;
 }
 
@@ -111,6 +112,7 @@ body, html {
   outline: none;
   margin-left: 10px;
   border-radius: 8px;
+  /* submit button color change on press */
   transition: background-color 0.2s ease-in-out;
 }
 
@@ -131,6 +133,21 @@ body, html {
     box-shadow: 0 0 10px #00ff00;
   }
 }
+
+
+/* code for old body with 8-ball image */
+/* body {
+  background-color: #060608;
+  background-image: url('background.jpg');
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  margin: 0;
+  height: 100vh;
+  width: 100vw;
+  overflow: hidden;
+} */
+
 
 .container {
   display: flex;
