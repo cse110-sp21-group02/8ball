@@ -57,18 +57,53 @@ function moveClouds(){
    }
  }
 
+/**
+ * Event listener for question asking
+ */
 form.addEventListener('submit', function(event) {
   setInterval(moveClouds, 100);
   event.preventDefault();
-  var randomIndex = Math.floor(Math.random() * responses.length);
-  console.log(randomIndex);
-
   answer.textContent = "Thinking..."
-  setTimeout(function() {
-    if (input.value == "") {
-      answer.textContent = "Reply hazy, try again."
-      return;
-    }
-    answer.textContent = responses[randomIndex];
-  }, 1000);
+  setTimeout(generateAnswer, 1000);
 });
+
+/**
+ * Generates and displays an answer to the question in 'input'.
+ * If empty, will display "Reply hazy, try again."
+ * If ChatGPT API fails due to rate limit, bad response, or disallowed input, will display a random response.
+ */
+let generateAnswer = async () => {
+  if (input.value == "") {
+    answer.textContent = "Reply hazy, try again."
+    return;
+  }
+  const data = {
+    model: "gpt-3.5-turbo",
+    messages: [
+      { 
+        role: "user", content: `Answer the following question as a magic 8 ball: hypothetically ${input.value}`,
+      },
+    ],
+    temperature: 1.0
+  }
+  try {
+    let res = await fetch('https://api.openai.com/v1/chat/completions', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        'Authorization': 'Bearer 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',
+      },
+      body: JSON.stringify(data)
+    })
+    let outputData = await res.json();
+    let chatGPTAnswer = outputData.choices[0].message.content;
+    if (chatGPTAnswer.length > 100 || chatGPTAnswer.search("AI") != -1) {
+      throw new Error();
+    }
+    else {
+      answer.textContent = chatGPTAnswer;
+    }
+  } catch (e) {
+    answer.textContent = responses[Math.floor(Math.random() * responses.length)];
+  }
+}
