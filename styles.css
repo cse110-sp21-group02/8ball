@@ -1,6 +1,137 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter&display=swap');
 
-body {
+/* Cool llama code inserted here */
+
+/* Reset default margin and padding */
+body, html {
+  margin: 0;
+  padding: 0;
+}
+
+/* Style for the speech bubble container */
+.speech-bubble {
+  width: 200px;
+  height: 100px;
+  background-color: #000;
+  color: #fff;
+  border-radius: 10px;
+  position: absolute;
+  left: 55%;
+  /* bottom: 280; */
+  bottom: 25%;
+  padding: 15px;
+  margin: 50px;
+  box-shadow: 0 0 10px #fff; /* Add glow effect with box-shadow */
+  opacity: 0; /* Set initial opacity to fully visible */
+  transition: opacity 0.7s ease-in-out; /* Add transition effect for opacity */
+}
+
+/* Style for the speech bubble stem */
+.speech-bubble::before {
+  content: "";
+  width: 0;
+  height: 0;
+  border-top: 20px solid transparent;
+  border-bottom: 20px solid transparent;
+  border-right: 20px solid #000;
+  position: absolute;
+  top: 50%;
+  left: -20px;
+  transform: translateY(-50%);
+}
+
+
+/* Neon text heading */
+.neon-heading {
+  font-size: 48px;
+  text-align: center;
+  color: #fff; /* Set text color to white */
+  text-shadow: 0 0 1px #00ff00, 0 0 2px #00ff00, 0 0 3px #00ff00, 0 0 4px #00ff00, 0 0 6px #00ff00, 0 0 8px #00ff00, 0 0 10px #00ff00; /* Neon text effect with multiple shadows */
+  background-color: #333; /* Set the background color to #333 */
+  padding: 20px; /* Add some padding to create a dark background around the heading */
+  /* border: 3px solid black; Set the border color to solid pink (#ff00ff) */
+  display: inline-block; /* Make the header a block-level element with inline-block display */
+  border-radius: 8px; /* Add some border radius to round the corners */
+}
+
+/* Background image container */
+.background-image {
+  background-image: url('logo_fat.jpg');
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center center;
+  width: 100%;
+  height: 100vh; /* Set height to fit viewport */
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: -1; /* Position behind content */
+}
+
+/* Futuristic form container */
+.futuristic-form {
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  height: 100vh;
+}
+
+/* Futuristic wrapper for text field and submit button */
+.futuristic-wrapper {
+  background-color: #333;
+  padding: 20px;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+}
+
+/* Futuristic text field */
+.futuristic-textfield {
+  padding: 12px;
+  border: none;
+  background-color: #222;
+  color: #ddd;
+  font-size: 16px;
+  width: 300px;
+  outline: none;
+  border-radius: 8px;
+  /* Neon border with animation */
+  animation: neon-border 2s infinite alternate;
+}
+
+/* Futuristic submit button */
+.futuristic-submit {
+  padding: 12px 20px;
+  background-color: #2ecc71;
+  color: #fff;
+  font-size: 16px;
+  border: none;
+  cursor: pointer;
+  outline: none;
+  margin-left: 10px;
+  border-radius: 8px;
+  transition: background-color 0.2s ease-in-out;
+}
+
+/* Hover effect for submit button */
+.futuristic-submit:hover {
+  background-color: #3498db;
+}
+
+/* Animation for neon border */
+@keyframes neon-border {
+  0% {
+    box-shadow: 0 0 10px #00ff00;
+  }
+  50% {
+    box-shadow: 0 0 20px #ff00ff;
+  }
+  100% {
+    box-shadow: 0 0 10px #00ff00;
+  }
+}
+
+/* body {
   background-color: #060608;
   background-image: url('background.jpg');
   background-size: cover;
@@ -10,7 +141,7 @@ body {
   height: 100vh;
   width: 100vw;
   overflow: hidden;
-}
+} */
 
 .container {
   display: flex;

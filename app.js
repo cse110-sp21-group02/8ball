@@ -63,6 +63,9 @@ form.addEventListener('submit', function(event) {
   var randomIndex = Math.floor(Math.random() * responses.length);
   console.log(randomIndex);
 
+  // added
+  toggleMessage();
+  //
   answer.textContent = "Thinking..."
   setTimeout(function() {
     if (input.value == "") {
@@ -70,5 +73,24 @@ form.addEventListener('submit', function(event) {
       return;
     }
     answer.textContent = responses[randomIndex];
+
+    // added: Hide speech bubble after 1 second
+    setTimeout(function() {
+      toggleMessage();
+    }, 1000);
+    //
+
   }, 1000);
+
 });
+
+// Function to toggle the visibility of the speech bubble
+function toggleMessage() {
+  if (answer.style.opacity === '0' || answer.style.opacity === '') {
+    // If opacity is 0 or not set, set it to 1 to make it visible
+    answer.style.opacity = '1';
+  } else {
+    // If opacity is 1, set it to 0 to make it invisible
+    answer.style.opacity = '0';
+  }
+}

@@ -7,18 +7,20 @@
     <link rel="stylesheet" href="styles.css">
   </head>
   <body>
+    <div class="background-image"></div>
     <div class="container">
-      <h1>MAGIC&nbsp;<span>8</span>&nbsp;BALL</h1></h1>
-      <form>
-        <label for="questionBox">Ask me anything:</label>
-        <input type="text" id="questionBox" name="questionBox">
-        <button type="submit" id="submit">Submit</button>
-      </form>
-      <div id="answer"> </div>
+      <h1 class="neon-heading">The Mighty Llama</h1>
+      <div class="speech-bubble" id="answer"></div>
+      <form class="futuristic-form">
+        <div class="futuristic-wrapper">
+          <input type="text" id="questionBox" name="questionBox" class="futuristic-textfield" placeholder="Enter text...">
+          <button type="submit" id="submit" class="futuristic-submit">Ask Away</button>
+        </div>
+      </form> 
     </div>
-    <div class="img">
+    <!-- <div class="img">
       <img src="ball.png" id="b">
-    </div>
+    </div> -->
 
     <div class="mountain">  
       <div id="cloud1" class="cloud">
