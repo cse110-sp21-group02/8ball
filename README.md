@@ -1,1 +1,1 @@
-# 8ball
+[Link for our 8ball game!](https://cse110-sp21-group02.github.io/8ball/)
