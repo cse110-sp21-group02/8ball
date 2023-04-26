@@ -1,6 +1,7 @@
 const form = document.querySelector('form');
 const input = document.getElementById('questionBox');
 const answer = document.getElementById('answer');
+const audio = document.getElementById("s");
 
 
 const responses = [
@@ -25,6 +26,9 @@ const responses = [
   "Outlook not so good.", 
   "Very doubtful."
 ];
+
+
+
 
 function moveClouds(){
   /* clouds 1 & 2 move to the left 
@@ -62,6 +66,7 @@ function moveClouds(){
  */
 form.addEventListener('submit', function(event) {
   setInterval(moveClouds, 100);
+   audio.play();
   event.preventDefault();
   answer.style.opacity = '1';
   answer.textContent = "Thinking..."
@@ -107,15 +112,20 @@ let generateAnswer = async () => {
     if (chatGPTAnswer.length > 100 || chatGPTAnswer.search("AI") != -1) {
       throw new Error();
     }
-    answer.textContent = chatGPTAnswer;
+    answer.innerHTML = "";
+    appearChars(chatGPTAnswer, answer, 50);
+
+    // answer.textContent = chatGPTAnswer;
     setTimeout(function() {
       answer.style.opacity = '0';
     }, 1000)
+
+
   } catch (e) {
     answer.textContent = responses[Math.floor(Math.random() * responses.length)];
     // Hide speech bubble after 1 second
     setTimeout(function() {
       answer.style.opacity = '0';
-    }, 1000);
+    }, 2000);
   }
 }
