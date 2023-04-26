@@ -64,7 +64,7 @@ form.addEventListener('submit', function(event) {
   console.log(randomIndex);
 
   // added
-  toggleMessage();
+  answer.style.opacity = '1';
   //
   answer.textContent = "Thinking..."
   setTimeout(function() {
@@ -76,7 +76,7 @@ form.addEventListener('submit', function(event) {
 
     // added: Hide speech bubble after 1 second
     setTimeout(function() {
-      toggleMessage();
+      answer.style.opacity = '0';
     }, 1000);
     //
 
@@ -84,13 +84,3 @@ form.addEventListener('submit', function(event) {
 
 });
 
-// Function to toggle the visibility of the speech bubble
-function toggleMessage() {
-  if (answer.style.opacity === '0' || answer.style.opacity === '') {
-    // If opacity is 0 or not set, set it to 1 to make it visible
-    answer.style.opacity = '1';
-  } else {
-    // If opacity is 1, set it to 0 to make it invisible
-    answer.style.opacity = '0';
-  }
-}
